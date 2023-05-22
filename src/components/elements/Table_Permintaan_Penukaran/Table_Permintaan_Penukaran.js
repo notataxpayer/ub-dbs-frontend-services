@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Product extends Component {
+export default class Table_Permintaan_Penukaran extends Component {
   render() {
     return (
       <div>

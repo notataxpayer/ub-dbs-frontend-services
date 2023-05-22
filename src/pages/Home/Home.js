@@ -1,10 +1,15 @@
 import React from "react";
 // inisiasi component
 import Layout from "../../components/Layout";
-import Table from "../../components/elements/Table";
+import Table_Permintaan_Penukaran from "../../components/elements/Table_Permintaan_Penukaran/Table_Permintaan_Penukaran";
+import Table_Riwayat_Penukaran from "../../components/elements/Table_Riwayat_Penukaran";
+import Table_Permintaan_Verifikasi from "../../components/elements/Table_Permintaan_Verifikasi";
 import Grafik_Area from "../../components/elements/Grafik_Area/Grafik_Area";
 import Product from "../../components/elements/Prod/Product";
+import Modal_Proses from "../../components/fragments/Modal_Proses";
+
 import Box from "../../components/elements/Box/Box";
+import Table_Stok_Sembako from "../../components/elements/Table_Stok_Sembako/Table_Stok_Sembako";
 
 export default function Home() {
   return (
@@ -27,10 +32,10 @@ export default function Home() {
                     </li>
                     <li className="breadcrumb-item active">Dashboard v1</li>
                   </ol> */}
-                  <span className="float-sm-right">
-                    <p>Buka • Akan tutup pada 16.00</p>
-                    <button className="btn-secondary">edit</button>
-                  </span>
+                  <div className="float-sm-right d-flex justify-content-center">
+                    <span className="align-middle">Buka • Akan tutup pada 16.00</span>
+                    <button className="btn-secondary border-0 ml-2">edit</button>
+                  </div>
                 </div>
                 {/* /.col */}
               </div>
@@ -47,18 +52,20 @@ export default function Home() {
               {/* Main row */}
               <div className="row">
                 {/* Left col */}
-                <section className="col-lg-7 connectedSortable">
+                <section className="col-lg-5 connectedSortable">
                   {/* Custom tabs (Charts with tabs)*/}
-                  {/* <Table /> */}
-                  <Product />
+                  {/* <Modal_Proses /> */}
+                  <Table_Permintaan_Penukaran />
                   <Grafik_Area />
+                  <Table_Stok_Sembako />
                 </section>
 
                 {/* /.Left col */}
                 {/* right col (We are only adding the ID to make the widgets sortable)*/}
-                <section className="col-lg-5 connectedSortable">
-                  <Product />
+                <section className="col-lg-7 connectedSortable">
+                  <Table_Riwayat_Penukaran />
                   <Grafik_Area />
+                  <Table_Permintaan_Verifikasi />
                 </section>
                 {/* right col */}
               </div>

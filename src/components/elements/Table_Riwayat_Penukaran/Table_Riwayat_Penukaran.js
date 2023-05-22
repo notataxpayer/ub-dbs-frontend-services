@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Product extends Component {
+export default class Table_Riwayat_Penukaran extends Component {
   render() {
     return (
       <div>
@@ -9,7 +9,7 @@ export default class Product extends Component {
           <div className="card-header border-1">
             <h3 className="card-title">
               <i className="fas fa-chart-pie mr-1" />
-              Permintaan Penukaran Sampah
+              Table_Riwayat_Penukaran
             </h3>
             <div className="card-tools">
               <button type="button" className="btn btn-tool" data-card-widget="collapse">
@@ -26,7 +26,9 @@ export default class Product extends Component {
                 <tr>
                   <th>ID Order</th>
                   <th>Nama</th>
+                  <th>Status</th>
                   <th>Waktu</th>
+                  <th>Petugas</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -34,13 +36,17 @@ export default class Product extends Component {
                 <tr>
                   <td>121405</td>
                   <td>Andi Budionno</td>
+                  <td>
+                    {" "}
+                    <button className="btn-primary border-0 ">Selesai</button>
+                  </td>
                   <td>10-01-2021 08:14</td>
+                  <td>Agung</td>
                   <td className="d-flex justify-content-center">
                     {/* <a href="#" className="text-muted">
                       <i className="fas fa-search" />
                     </a> */}
-                    <button className="btn-primary border-0 mr-2">Proses</button>
-                    <button className="btn-danger border-0">Tolak</button>
+                    <button className="btn-primary border-0 mr-2">Detail</button>
                   </td>
                 </tr>
               </tbody>
