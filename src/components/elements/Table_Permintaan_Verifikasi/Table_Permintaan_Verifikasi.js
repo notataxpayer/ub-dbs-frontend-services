@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import logo from "../../assets/logo/logo_bsd.png";
 
 export default class Table_Permintaan_Verifikasi extends Component {
   render() {
@@ -36,14 +37,16 @@ export default class Table_Permintaan_Verifikasi extends Component {
                   <td>082335456711</td>
                   <td>Andi Budiono</td>
                   <td>
-                    <button className="btn-warning border-0">Pending</button>
+                    <button className="btn-warning border-0 disabled">Pending</button>
                   </td>
                   <td>10-01-2023 13:14</td>
                   <td className="d-flex justify-content-center">
                     {/* <a href="#" className="text-muted">
                       <i className="fas fa-search" />
                     </a> */}
-                    <button className="btn-primary border-0">Proses</button>
+                    <button className="btn-primary border-0" data-dismiss="modal" data-toggle="modal" data-target="#modal_minta_verif">
+                      Proses
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -51,53 +54,75 @@ export default class Table_Permintaan_Verifikasi extends Component {
           </div>
         </div>
         {/* /.card */}
-        {/* modal product  */}
-        <div className="modal fade" id="modal_product">
-          <div className="modal-dialog">
-            <div className="modal-content mt-4">
-              <div className="modal-header bg-info text-white">
-                <h4 className="text-center mx-auto">
-                  <strong>Form Product</strong>
-                </h4>
+        {/* modal detail  */}
+        <div class="modal fade" id="modal_minta_verif" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                  <i className="fas fa-chart-pie mr-1" />
+                  Permintaan Verifikasi
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-              <div className="modal-body ">
-                <form onSubmit={(ev) => this.saveProduct(ev)}>
-                  <div className="row">
-                    <div className="col-4">
-                      {/* product_image_url */}
-                      <img src={"/" + this.state.image} className="modal-image img-thumbnail mx-auto mb-2" />
-                      {this.state.action === "update" && this.state.uploadFile === false ? (
-                        <button className="btn btn-sm btn-dark mb-1 btn-block" onClick={() => this.setState({ uploadFile: true })}>
-                          Change Product Image
-                        </button>
-                      ) : (
-                        <div>
-                          <strong>Product Image</strong>
-                          <input type="file" className="form-control mb-1" onChange={(ev) => this.setState({ image: ev.target.files[0] })} required />
-                        </div>
-                      )}
-                    </div>
+              <div class="modal-body justify-content-center">
+                <h5 className="m-3">Profil Nasabah</h5>
+                <div className="modal-image d-flex justify-content-center">
+                  <img src={logo} alt="Logo" className="brand-image " />
+                  {/* MAKE A LINGKARAN FOR IMAGE */}
+                </div>
 
-                    <div className="col-8 mb-2">
-                      <strong>Product Name</strong>
-                      <input type="text" className="form-control mb-1" value={this.state.name} onChange={(ev) => this.setState({ name: ev.target.value })} required />
-
-                      <strong>Product Stock</strong>
-                      <input type="number" className="form-control mb-1" value={this.state.stock} onChange={(ev) => this.setState({ stock: ev.target.value })} required />
-
-                      <strong>Product Price</strong>
-                      <input type="number" className="form-control mb-1" value={this.state.price} onChange={(ev) => this.setState({ price: ev.target.value })} required />
+                <form className="m-5">
+                  <div class="form-group row ">
+                    <label for="inputPassword" class="col-sm-5 col-form-label">
+                      Nama Pengguna
+                    </label>
+                    <div class="col-sm-7 ">
+                      <input type="text" class="form-control" id="inputPassword" />
+                      {/* <p>Andi Budiono</p> */}
                     </div>
                   </div>
-
-                  <button type="submit" className="btn btn-block btn-success">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
-                      <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z" />
-                      <path d="M8.354 10.354l7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
-                    </svg>
-                    <t /> Simpan
-                  </button>
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-5 col-form-label">
+                      Waktu Request
+                    </label>
+                    <div class="col-sm-7">
+                      <input type="number" class="form-control" id="inputPassword" />
+                      {/* <p>10-01-2023 13:14</p> */}
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-5 col-form-label">
+                      No Telepon
+                    </label>
+                    <div class="col-sm-7">
+                      <input type="number" class="form-control" id="inputPassword" />
+                      {/* <p>0847-242-983-191</p> */}
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-5 col-form-label">
+                      Alamat Nasabah
+                    </label>
+                    <div class="col-sm-7">
+                      <input type="text" class="form-control" id="inputPassword" />
+                      {/* <p>Jl. Raya Bukan Gg. III No. 17a. Dinoyo, Malang</p> */}
+                    </div>
+                  </div>
                 </form>
+                {/* </div> */}
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger">
+                  Tolak
+                </button>
+
+                <button type="button" class="btn btn-success">
+                  Setujui
+                </button>
               </div>
             </div>
           </div>
